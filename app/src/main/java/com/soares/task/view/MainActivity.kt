@@ -1,7 +1,8 @@
-package com.soares.task
+package com.soares.task.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.soares.task.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
