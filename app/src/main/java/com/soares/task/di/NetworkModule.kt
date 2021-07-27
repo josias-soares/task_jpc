@@ -1,9 +1,9 @@
-package com.josias.soares.task.di
+package com.soares.task.di
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.josias.soares.task.BuildConfig
-import com.josias.soares.task.shared.DateUtil
+import com.soares.task.BuildConfig
+import com.soares.task.shared.DateUtil
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

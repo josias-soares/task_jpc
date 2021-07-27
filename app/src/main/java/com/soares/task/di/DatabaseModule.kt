@@ -1,9 +1,9 @@
-package com.josias.soares.task.di
+package com.soares.task.di
 
 import android.content.Context
 import androidx.room.Room
-import com.josias.soares.task.datasource.cache.TaskDatabase
-import com.josias.soares.task.datasource.cache.TaskDatabase.Companion.MIGRATION_1_2
+import com.soares.task.datasource.cache.TaskDatabase
+import com.soares.task.datasource.cache.TaskDatabase.Companion.MIGRATION_1_2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

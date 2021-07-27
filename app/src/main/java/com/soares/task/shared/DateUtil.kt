@@ -1,4 +1,4 @@
-package com.josias.soares.task.shared
+package com.soares.task.shared
 
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer

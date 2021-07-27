@@ -1,4 +1,4 @@
-package com.josias.soares.task
+package com.soares.task
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
