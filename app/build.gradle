@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.josiassoares.task"
+        applicationId "com.josias.soares.task"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

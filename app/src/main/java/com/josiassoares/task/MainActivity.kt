@@ -1,4 +1,4 @@
-package com.josiassoares.task
+package com.josias.soares.task
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

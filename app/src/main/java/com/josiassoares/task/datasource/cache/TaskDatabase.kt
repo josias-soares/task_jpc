@@ -1,11 +1,11 @@
-package com.josiassoares.task.datasource.cache
+package com.josias.soares.task.datasource.cache
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.josiassoares.task.shared.Converters
+import com.josias.soares.task.shared.Converters
 
 const val CURRENT_VERSION_DATABASE = 2
 

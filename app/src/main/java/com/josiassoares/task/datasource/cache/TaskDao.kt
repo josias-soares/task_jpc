@@ -1,4 +1,4 @@
-package com.josiassoares.task.datasource.cache
+package com.josias.soares.task.datasource.cache
 
 import androidx.room.Dao
 import androidx.room.Query
