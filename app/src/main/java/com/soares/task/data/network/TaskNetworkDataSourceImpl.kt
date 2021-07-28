@@ -3,7 +3,7 @@ package com.soares.task.data.network
 import com.soares.task.data.network.mappers.TaskNetworkMapper
 import com.soares.task.domain.models.Task
 import com.soares.task.domain.services.TaskService
-import com.soares.task.domain.datasources.TaskNetworkDataSource
+import com.soares.task.domain.repositories.datasources.TaskNetworkDataSource
 import com.soares.task.shared.Constants.ErrorMessage.ReturnsNull
 import kotlinx.coroutines.delay
 

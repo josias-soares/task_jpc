@@ -21,6 +21,10 @@ constructor(
         return dao.delete(id)
     }
 
+    override suspend fun getAll(): List<TaskCache> {
+        return dao.getAll()
+    }
+
     override suspend fun deleteAll() {
         dao.deleteAll()
     }

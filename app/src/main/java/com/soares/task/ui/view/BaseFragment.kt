@@ -5,7 +5,11 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@AndroidEntryPoint
+@ExperimentalCoroutinesApi
 abstract class BaseFragment : Fragment(), View.OnClickListener {
 
     lateinit var navController: NavController

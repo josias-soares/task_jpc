@@ -1,22 +1,25 @@
 package com.soares.task.ui.viewmodel
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.soares.task.domain.DataState
 import com.soares.task.domain.models.Task
 import com.soares.task.domain.usecases.DoSaveTask
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
+@HiltViewModel
 class TaskViewModel
-@ViewModelInject
+@Inject
 constructor(
-    private val doSaveTask: DoSaveTask,
-    @Assisted private val savedStateHandle: SavedStateHandle
+    private val doSaveTask: DoSaveTask
 ) : ViewModel() {
 
     private val _task: MutableLiveData<Task> = MutableLiveData()

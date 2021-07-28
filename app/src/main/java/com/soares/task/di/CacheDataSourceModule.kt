@@ -3,18 +3,18 @@ package com.soares.task.di
 import android.content.Context
 import com.soares.task.data.cache.*
 import com.soares.task.data.cache.mappers.TaskCacheMapper
-import com.soares.task.domain.datasources.TaskCacheDataSource
+import com.soares.task.domain.repositories.datasources.TaskCacheDataSource
 import com.soares.task.domain.services.TaskDaoService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
-object CacheModule {
+@InstallIn(SingletonComponent::class)
+object CacheDataSourceModule {
 
     @Singleton
     @Provides

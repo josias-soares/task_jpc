@@ -1,9 +1,9 @@
 package com.soares.task.data.cache
 
 import com.soares.task.data.cache.mappers.TaskCacheMapper
-import com.soares.task.domain.datasources.TaskCacheDataSource
-import com.soares.task.domain.services.TaskDaoService
 import com.soares.task.domain.models.Task
+import com.soares.task.domain.repositories.datasources.TaskCacheDataSource
+import com.soares.task.domain.services.TaskDaoService
 
 
 class TaskCacheDataSourceImpl
@@ -23,7 +23,12 @@ constructor(
     }
 
     override suspend fun delete(id: Long) {
-        daoService.delete(id)
+        return daoService.delete(id)
+    }
+
+    override suspend fun getAll(): List<Task> {
+        val tasks = daoService.getAll()
+        return tasks.let { cacheMapper.mapFromEntityList(it) }
     }
 
     override suspend fun deleteAll() {

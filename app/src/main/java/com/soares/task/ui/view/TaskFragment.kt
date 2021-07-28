@@ -9,11 +9,8 @@ import androidx.fragment.app.viewModels
 import com.soares.task.R
 import com.soares.task.databinding.FragmentTaskBinding
 import com.soares.task.ui.viewmodel.TaskViewModel
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@ExperimentalCoroutinesApi
 class TaskFragment : BaseFragment() {
-
     private val viewModel: TaskViewModel by viewModels()
     private lateinit var binding: FragmentTaskBinding
 

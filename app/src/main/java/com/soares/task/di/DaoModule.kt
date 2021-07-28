@@ -1,17 +1,17 @@
 package com.soares.task.di
 
+import com.soares.task.data.cache.TaskDatabase
 import com.soares.task.data.cache.daos.TaskDao
 import com.soares.task.data.cache.services.TaskDaoServiceImpl
-import com.soares.task.data.cache.TaskDatabase
 import com.soares.task.domain.services.TaskDaoService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object DaoModule {
     @Singleton
     @Provides

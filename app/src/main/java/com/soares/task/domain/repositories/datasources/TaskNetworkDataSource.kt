@@ -1,4 +1,4 @@
-package com.soares.task.domain.datasources
+package com.soares.task.domain.repositories.datasources
 
 import com.soares.task.data.network.AddTaskRequest
 import com.soares.task.domain.models.Task

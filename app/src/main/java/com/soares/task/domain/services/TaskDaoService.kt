@@ -6,5 +6,6 @@ interface TaskDaoService {
     suspend fun insert(taskCache: TaskCache): Long
     suspend fun get(id: Long): TaskCache?
     suspend fun delete(id: Long)
+    suspend fun getAll(): List<TaskCache>
     suspend fun deleteAll()
 }

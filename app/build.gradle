@@ -67,8 +67,8 @@ kapt {
 
 dependencies {
     def room_version = "2.3.0"
-    def hilt_version = "2.28-alpha"
-    def hilt_view_model_version = "1.0.0-alpha01"
+    def hilt_version = "2.38"
+    def hilt_view_model_version = "1.0.0-alpha03"
     def retrofit_version = "2.9.0"
     def okhttp3_version = '4.2.1'
     def nav_version = "2.3.5"
