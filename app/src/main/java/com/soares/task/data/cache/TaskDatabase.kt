@@ -1,10 +1,12 @@
-package com.soares.task.datasource.cache
+package com.soares.task.data.cache
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.soares.task.data.cache.daos.TaskDao
+import com.soares.task.data.cache.tables.TaskCache
 import com.soares.task.shared.Converters
 
 const val CURRENT_VERSION_DATABASE = 2
@@ -22,7 +24,7 @@ abstract class TaskDatabase : RoomDatabase() {
     companion object {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
-                database.execSQL("ALTER TABLE task ADD COLUMN obs TEXT")
+                database.execSQL("ALTER TABLE task ADD COLUMN description TEXT")
             }
         }
 

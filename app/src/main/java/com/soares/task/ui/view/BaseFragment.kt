@@ -1,4 +1,4 @@
-package com.soares.task.view
+package com.soares.task.ui.view
 
 import android.os.Bundle
 import android.view.View

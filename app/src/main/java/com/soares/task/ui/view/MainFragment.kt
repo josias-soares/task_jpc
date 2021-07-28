@@ -1,4 +1,4 @@
-package com.soares.task.view
+package com.soares.task.ui.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.soares.task.R
-import com.soares.task.databinding.FragmentTaskBinding
+import com.soares.task.databinding.FragmentMainBinding
 
-class TaskFragment : BaseFragment() {
-
-    private lateinit var binding: FragmentTaskBinding
+class MainFragment : BaseFragment() {
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,18 +17,19 @@ class TaskFragment : BaseFragment() {
     ): View {
         binding = DataBindingUtil.inflate(
             LayoutInflater.from(context),
-            R.layout.fragment_task, container, false
+            R.layout.fragment_main, container, false
         )
 
         //binding.viewModel = viewModel
-        binding.lifecycleOwner = this@TaskFragment
+        binding.lifecycleOwner = this@MainFragment
+
 
         return binding.root
     }
 
     override fun listeners() {
         binding.txtFragTask.setOnClickListener {
-            navController.navigateUp()
+            navController.navigate(MainFragmentDirections.actionMainFragmentToTaskFragment())
         }
     }
 

@@ -52,10 +52,10 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(gson: Gson, client: OkHttpClient): Retrofit.Builder {
+    fun provideRetrofit(gson: Gson, client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(client)
             .baseUrl(BuildConfig.URL)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create(gson)).build()
     }
 }
