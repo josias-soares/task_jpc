@@ -3,7 +3,7 @@ package com.soares.task.di
 import android.content.Context
 import com.soares.task.data.cache.*
 import com.soares.task.data.cache.mappers.TaskCacheMapper
-import com.soares.task.domain.data.TaskCacheDataSource
+import com.soares.task.domain.datasources.TaskCacheDataSource
 import com.soares.task.domain.services.TaskDaoService
 import dagger.Module
 import dagger.Provides

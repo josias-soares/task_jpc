@@ -1,7 +1,7 @@
 package com.soares.task.data.cache
 
 import com.soares.task.data.cache.mappers.TaskCacheMapper
-import com.soares.task.domain.data.TaskCacheDataSource
+import com.soares.task.domain.datasources.TaskCacheDataSource
 import com.soares.task.domain.services.TaskDaoService
 import com.soares.task.domain.models.Task
 

@@ -1,9 +1,9 @@
 package com.soares.task.domain.usecases
 
-import com.soares.task.domain.data.TaskCacheDataSource
+import com.soares.task.domain.datasources.TaskCacheDataSource
 import com.soares.task.data.network.AddTaskRequest
 import com.soares.task.domain.DataState
-import com.soares.task.domain.data.TaskNetworkDataSource
+import com.soares.task.domain.datasources.TaskNetworkDataSource
 import com.soares.task.domain.models.Task
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

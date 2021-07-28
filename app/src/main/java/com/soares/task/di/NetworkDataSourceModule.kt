@@ -2,7 +2,7 @@ package com.soares.task.di
 
 import com.soares.task.data.network.TaskNetworkDataSourceImpl
 import com.soares.task.data.network.mappers.TaskNetworkMapper
-import com.soares.task.domain.data.TaskNetworkDataSource
+import com.soares.task.domain.datasources.TaskNetworkDataSource
 import com.soares.task.domain.services.TaskService
 import dagger.Module
 import dagger.Provides
