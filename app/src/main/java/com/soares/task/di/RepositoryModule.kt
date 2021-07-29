@@ -1,5 +1,6 @@
 package com.soares.task.di
 
+import android.content.Context
 import com.soares.task.data.TaskRepositoryImpl
 import com.soares.task.domain.repositories.TaskRepository
 import com.soares.task.domain.repositories.datasources.TaskCacheDataSource
@@ -18,8 +19,9 @@ object RepositoryModule {
     @Provides
     fun provideTaskRepository(
         cacheDataSource: TaskCacheDataSource,
-        networkDataSource: TaskNetworkDataSource
+        networkDataSource: TaskNetworkDataSource,
+        context: Context
     ): TaskRepository {
-        return TaskRepositoryImpl(cacheDataSource, networkDataSource)
+        return TaskRepositoryImpl(cacheDataSource, networkDataSource, context)
     }
 }
