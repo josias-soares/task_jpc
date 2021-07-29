@@ -8,6 +8,14 @@
         <import type="android.view.View" />
 
         <variable
+            name="isUpdate"
+            type="Boolean" />
+
+        <variable
+            name="task"
+            type="com.soares.task.domain.models.Task" />
+
+        <variable
             name="viewModel"
             type="com.soares.task.ui.viewmodel.TaskViewModel" />
     </data>
@@ -91,6 +99,8 @@
             android:gravity="center_vertical"
             android:hint="@string/select_date"
             app:layout_constraintLeft_toLeftOf="parent"
+            android:textColor="@color/black"
+            android:text="@{viewModel.task.dueDate}"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_date" />
 
@@ -107,6 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save_task"
+            android:onClick="@{() -> viewModel.saveTask()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />

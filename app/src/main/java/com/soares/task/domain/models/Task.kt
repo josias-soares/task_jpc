@@ -1,8 +1,9 @@
 package com.soares.task.domain.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Task (
+data class Task(
     @SerializedName("Id")
     var id: Long = 0,
 
@@ -17,4 +18,4 @@ class Task (
 
     @SerializedName("Complete")
     var complete: Boolean = false
-)
+) : Serializable

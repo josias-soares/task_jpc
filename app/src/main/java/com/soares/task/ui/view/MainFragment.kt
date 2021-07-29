@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.soares.task.R
 import com.soares.task.databinding.FragmentMainBinding
+import com.soares.task.domain.models.Task
 
 class MainFragment : BaseFragment() {
     private lateinit var binding: FragmentMainBinding
@@ -29,15 +30,11 @@ class MainFragment : BaseFragment() {
 
     override fun listeners() {
         binding.txtFragTask.setOnClickListener {
-            navController.navigate(MainFragmentDirections.actionMainFragmentToTaskFragment())
+            navController.navigate(MainFragmentDirections.actionMainFragmentToTaskFragment(task = Task(1,"Teste", 2, "25/06/2021", true)))
         }
     }
 
     override fun observers() {
-
-    }
-
-    override fun onClick(v: View?) {
 
     }
 }

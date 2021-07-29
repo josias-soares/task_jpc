@@ -9,8 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @AndroidEntryPoint
-@ExperimentalCoroutinesApi
-abstract class BaseFragment : Fragment(), View.OnClickListener {
+abstract class BaseFragment : Fragment() {
 
     lateinit var navController: NavController
 

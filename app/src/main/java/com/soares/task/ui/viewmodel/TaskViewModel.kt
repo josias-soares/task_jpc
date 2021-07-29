@@ -25,7 +25,7 @@ constructor(
 ) : ViewModel() {
 
     private val _task: MutableLiveData<Task> = MutableLiveData()
-    val task: LiveData<Task> get() = _task
+    val task: MutableLiveData<Task> get() = _task
 
     private val _errorMessage: MutableLiveData<String> = MutableLiveData()
     val errorMessage: LiveData<String> get() = _errorMessage
@@ -33,33 +33,36 @@ constructor(
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean> get() = _loading
 
-    fun addTask(task: Task) {
-        viewModelScope.launch {
-            doSaveTask(task)
-                .onEach { dataState ->
-                    _loading.postValue(false)
-                    when (dataState) {
-                        is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
-                        is DataState.Loading -> _loading.postValue(true)
-                        is DataState.Success -> _task.postValue(dataState.data)
-                    }
-                }
-                .launchIn(viewModelScope)
-        }
+    fun setTask(t: Task) {
+        _task.value = t
     }
 
-    fun updateTask(task: Task) {
+    fun saveTask() {
         viewModelScope.launch {
-            doSaveTask(task)
-                .onEach { dataState ->
-                    _loading.postValue(false)
-                    when (dataState) {
-                        is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
-                        is DataState.Loading -> _loading.postValue(true)
-                        is DataState.Success -> _task.postValue(dataState.data)
-                    }
-                }
-                .launchIn(viewModelScope)
+            task.value?.let {
+                if (it.id > 0)
+                    doUpdateTask(it)
+                        .onEach { dataState ->
+                            _loading.postValue(false)
+                            when (dataState) {
+                                is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
+                                is DataState.Loading -> _loading.postValue(true)
+                                is DataState.Success -> _task.postValue(dataState.data)
+                            }
+                        }
+                        .launchIn(viewModelScope)
+                else
+                    doSaveTask(it)
+                        .onEach { dataState ->
+                            _loading.postValue(false)
+                            when (dataState) {
+                                is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
+                                is DataState.Loading -> _loading.postValue(true)
+                                is DataState.Success -> _task.postValue(dataState.data)
+                            }
+                        }
+                        .launchIn(viewModelScope)
+            }
         }
     }
 }
