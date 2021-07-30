@@ -30,7 +30,7 @@ Application using JetPack components
       <tr>
          <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/livedata"> LiveData</a></td>
          <td>🔲 <a href="https://developer.android.com/guide/topics/ui/look-and-feel/emoji-compat"> Emoji</a></td>
-         <td>☑️ <a href="https://developer.android.com/jetpack/androidx/releases/multidex"> Multidex</a></td>
+         <td>🔲 <a href="https://developer.android.com/jetpack/androidx/releases/multidex"> Multidex</a></td>
          <td>🔲 <a href="https://developer.android.com/guide/topics/permissions/overview"> Permissions</a></td>
       </tr>
       <tr>
