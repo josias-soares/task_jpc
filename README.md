@@ -42,16 +42,16 @@ Application using JetPack components
          <td>🔲 <a href="https://developer.android.com/guide/topics/ui/notifiers/notifications"> Notifications</a></td>
       </tr>
       <tr>
-         <td>🔲 Paging</td>
+         <td>🔲  <a href="https://developer.android.com/topic/libraries/architecture/paging">Paging</td>
          <td>🔳 Layout</td>
          <td></td>
          <td>🔲 Sharing</td>
       </tr>
       <tr>
          <td>☑️ <a href="https://developer.android.com/training/data-storage/room"> Room</td>
-         <td>🔲 Palette</td>
+         <td>🔲  <a href="https://developer.android.com/jetpack/androidx/releases/palette">Palette</td>
          <td> </td>
-         <td>🔲 Slices</td>
+         <td>🔲  <a href="https://developer.android.com/guide/slices">Slices</td>
       </tr>
       <tr>
          <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/viewmodel"> ViewModel</td>
@@ -60,7 +60,7 @@ Application using JetPack components
          <td> </td>
       </tr>
       <tr>
-         <td>🔲 WorkManager</td>
+         <td>🔲  <a href="https://developer.android.com/topic/libraries/architecture/workmanager">WorkManager</td>
          <td> </td>
          <td> </td>
          <td> </td>
