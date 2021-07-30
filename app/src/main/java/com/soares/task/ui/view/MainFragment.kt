@@ -1,12 +1,12 @@
 package com.soares.task.ui.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.soares.task.R
 import com.soares.task.databinding.FragmentMainBinding
 import com.soares.task.domain.models.Task
@@ -16,7 +16,8 @@ import com.soares.task.ui.viewmodel.MainViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class MainFragment : BaseFragment(), TaskAdapter.OnItemTaskClickListener{
+class MainFragment : BaseFragment(), TaskAdapter.OnItemTaskClickListener {
+    private var currentPosition: Int = 0
     private val listTask: MutableList<Task> = arrayListOf()
     private lateinit var taskAdapter: TaskAdapter
     private val viewModel: MainViewModel by viewModels()
@@ -54,6 +55,7 @@ class MainFragment : BaseFragment(), TaskAdapter.OnItemTaskClickListener{
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun observers() {
         viewModel.apply {
             tasks.observe(this@MainFragment, {
@@ -63,9 +65,11 @@ class MainFragment : BaseFragment(), TaskAdapter.OnItemTaskClickListener{
                 taskAdapter.notifyDataSetChanged()
             })
 
-            loading.observe(this@MainFragment, { show ->
-                //if (show) loadingDialog.show() else loadingDialog.dismiss()
+            changedTask.observe(this@MainFragment, {
+                taskAdapter.notifyItemChanged(currentPosition)
+            })
 
+            loading.observe(this@MainFragment, { show ->
                 binding.swipeLayout.isRefreshing = show
             })
 
@@ -80,7 +84,15 @@ class MainFragment : BaseFragment(), TaskAdapter.OnItemTaskClickListener{
         navController.navigate(MainFragmentDirections.actionMainFragmentToTaskFragment(task))
     }
 
+
     override fun onRemove(task: Task) {
         viewModel.deleteTask(task)
+    }
+
+
+    override fun onComplete(task: Task, position: Int) {
+        currentPosition = position
+        task.complete = !task.complete
+        viewModel.completeTask(task)
     }
 }

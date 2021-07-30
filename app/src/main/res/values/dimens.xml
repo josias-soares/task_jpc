@@ -2,4 +2,5 @@
 <resources>
     <dimen name="margin_top">16dp</dimen>
     <dimen name="padding_page">16dp</dimen>
+    <dimen name="icon_size">32dp</dimen>
 </resources>

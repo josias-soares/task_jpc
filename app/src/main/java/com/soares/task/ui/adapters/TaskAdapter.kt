@@ -17,6 +17,7 @@ class TaskAdapter(
 
     interface OnItemTaskClickListener {
         fun onEdit(task: Task)
+        fun onComplete(task: Task, position: Int)
         fun onRemove(task: Task)
     }
 
@@ -41,11 +42,15 @@ class TaskAdapter(
 
             binding.textPriority.text = priorities[task.priorityId]
 
+            binding.imageComplete.setOnClickListener {
+                onItemMenuClickListener.onComplete(items[adapterPosition], adapterPosition)
+            }
+
             binding.imageEdit.setOnClickListener {
                 onItemMenuClickListener.onEdit(items[adapterPosition])
             }
 
-            binding.imageRemove.setOnClickListener{
+            binding.imageRemove.setOnClickListener {
                 onItemMenuClickListener.onRemove(items[adapterPosition])
             }
         }

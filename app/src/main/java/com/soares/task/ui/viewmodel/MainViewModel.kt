@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.soares.task.domain.DataState
 import com.soares.task.domain.models.Task
+import com.soares.task.domain.usecases.DoUpdateTask
 import com.soares.task.domain.usecases.GetAllTasks
 import com.soares.task.domain.usecases.RemoveTask
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,7 @@ class MainViewModel
 constructor(
     private val getAllTasks: GetAllTasks,
     private val removeTask: RemoveTask,
+    private val doUpdateTask: DoUpdateTask,
 ) : ViewModel() {
 
     private val _tasks: MutableLiveData<List<Task>> = MutableLiveData()
@@ -32,6 +34,9 @@ constructor(
 
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean> get() = _loading
+
+    private val _changedTask: MutableLiveData<Boolean> = MutableLiveData()
+    val changedTask: LiveData<Boolean> get() = _changedTask
 
     fun getAll() {
         viewModelScope.launch {
@@ -59,6 +64,21 @@ constructor(
                         is DataState.Success -> {
                             getAll()
                         }
+                    }
+                }
+                .launchIn(viewModelScope)
+        }
+    }
+
+    fun completeTask(task: Task) {
+        viewModelScope.launch {
+            doUpdateTask(task)
+                .onEach { dataState ->
+                    _loading.postValue(false)
+                    when (dataState) {
+                        is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
+                        is DataState.Loading -> _loading.postValue(true)
+                        is DataState.Success -> _changedTask.postValue(true)
                     }
                 }
                 .launchIn(viewModelScope)

@@ -25,6 +25,7 @@ import java.util.*
 
 @ExperimentalCoroutinesApi
 class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
+    private var editMode: Boolean = false
     private val viewModel: TaskViewModel by viewModels()
     private val args: TaskFragmentArgs by navArgs()
 
@@ -52,7 +53,8 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
             enableButton()
         }
 
-        activity?.title = if (binding.task!!.id > 0) "Edit" else "New"
+        editMode = (binding.task!!.id > 0)
+        activity?.title = if (editMode) "Edit" else "New"
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@TaskFragment
@@ -82,7 +84,7 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
         }
 
         binding.buttonSave.setOnClickListener {
-            currentTask?.apply {
+            currentTask.apply {
                 complete = binding.checkComplete.isChecked
                 description = binding.editDescription.text.toString()
 
@@ -109,7 +111,7 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
             })
 
             createdTask.observe(this@TaskFragment, {
-                val dialog = ComponentUtils().getAlertDialog(requireActivity(), "Task Added", false)
+                val dialog = ComponentUtils().getAlertDialog(requireActivity(), "Task ${if (editMode) "Edited" else "Added"}", false)
                 dialog.setOnDismissListener {
                     navController.navigateUp()
                 }
