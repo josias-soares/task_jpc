@@ -11,6 +11,9 @@ interface TaskApi {
     @PATCH("/Task")
     suspend fun updateTask(@Body request: TaskNetwork): TaskNetwork?
 
+    @DELETE("/Task/{id}")
+    suspend fun deleteTask(@Path(value = "id") id: Long): Boolean?
+
     @GET("/Task/{id}")
     suspend fun consultTask(@Path(value = "id") id: Long): TaskNetwork?
 

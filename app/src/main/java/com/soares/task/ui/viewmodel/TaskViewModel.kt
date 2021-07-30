@@ -33,6 +33,9 @@ constructor(
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean> get() = _loading
 
+    private val _createdTask: MutableLiveData<Boolean> = MutableLiveData()
+    val createdTask: LiveData<Boolean> get() = _createdTask
+
     fun setTask(t: Task) {
         _task.value = t
     }
@@ -47,7 +50,7 @@ constructor(
                             when (dataState) {
                                 is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
                                 is DataState.Loading -> _loading.postValue(true)
-                                is DataState.Success -> _task.postValue(dataState.data)
+                                is DataState.Success -> _createdTask.postValue(true)
                             }
                         }
                         .launchIn(viewModelScope)
@@ -58,7 +61,7 @@ constructor(
                             when (dataState) {
                                 is DataState.Error -> _errorMessage.postValue(dataState.exception.message)
                                 is DataState.Loading -> _loading.postValue(true)
-                                is DataState.Success -> _task.postValue(dataState.data)
+                                is DataState.Success -> _createdTask.postValue(true)
                             }
                         }
                         .launchIn(viewModelScope)

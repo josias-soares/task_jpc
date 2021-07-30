@@ -66,6 +66,7 @@ kapt {
 }
 
 dependencies {
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     def room_version = "2.3.0"
     def hilt_version = "2.38"
     def hilt_view_model_version = "1.0.0-alpha03"

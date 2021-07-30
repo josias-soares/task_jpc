@@ -39,9 +39,23 @@ constructor(
             throw  WithoutInternetException()
         }
 
-        networkDataSource.updateTask(task)
+        networkDataSource.updateTask(task)?.apply {
+            cacheDataSource.insert(task)
+        }
 
         return cacheDataSource.get(task.id)
+    }
+
+    override suspend fun removeTask(task: Task): Boolean {
+        if (!ConnectionHelper.isConnectionAvailable(context)) {
+            throw  WithoutInternetException()
+        }
+
+        networkDataSource.removeTask(task).apply {
+            cacheDataSource.delete(task.id)
+        }
+
+        return true
     }
 
     override suspend fun consultAllTask(): List<Task> {

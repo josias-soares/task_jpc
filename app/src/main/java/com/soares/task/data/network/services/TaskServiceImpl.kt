@@ -16,6 +16,10 @@ constructor(
         return serviceApi.updateTask(request)
     }
 
+    override suspend fun removeTask(id: Long): Any? {
+        return serviceApi.deleteTask(id)
+    }
+
     override suspend fun consultAllTask(): List<TaskNetwork>? {
         return serviceApi.consultAllTask()
     }

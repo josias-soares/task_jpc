@@ -1,17 +1,17 @@
 package com.soares.task.ui.view
 
-import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.DatePicker
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.navArgs
 import com.soares.task.R
 import com.soares.task.databinding.FragmentTaskBinding
@@ -25,13 +25,12 @@ import java.util.*
 
 @ExperimentalCoroutinesApi
 class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
-    private lateinit var loadingDialog: AlertDialog
     private val viewModel: TaskViewModel by viewModels()
     private val args: TaskFragmentArgs by navArgs()
 
     private lateinit var binding: FragmentTaskBinding
     private val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-    private val currentTask = MutableLiveData<Task>()
+    private lateinit var currentTask: Task
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,10 +42,17 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
         )
 
         args.task.let {
-            viewModel.setTask(it)
+            currentTask = it
+
+            binding.task = it
+
+            binding.spinnerPriority.setSelection(it.priorityId)
+            binding.buttonDate.text = it.dueDate
+
+            enableButton()
         }
 
-        loadingDialog = ComponentUtils().getLoadingDialog(requireActivity(), false)
+        activity?.title = if (binding.task!!.id > 0) "Edit" else "New"
 
         binding.viewModel = viewModel
         binding.lifecycleOwner = this@TaskFragment
@@ -63,26 +69,32 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
                 position: Int,
                 id: Long
             ) {
-                currentTask.value?.let {
-                    it.priorityId = position
-                }
+                currentTask.priorityId = position
+                enableButton()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
 
+        binding.checkComplete.setOnCheckedChangeListener { _, isChecked ->
+            currentTask.complete = isChecked
+        }
+
         binding.buttonSave.setOnClickListener {
-            currentTask.value?.let {
-                viewModel.setTask(it)
+            currentTask?.apply {
+                complete = binding.checkComplete.isChecked
+                description = binding.editDescription.text.toString()
+
+                viewModel.setTask(this)
                 viewModel.saveTask()
             }
+
         }
 
         binding.editDescription.doOnTextChanged { text, _, _, _ ->
-            currentTask.value?.let {
-                it.description = text.toString().trim()
-            }
+            currentTask.description = text.toString().trim()
+            enableButton()
         }
 
         binding.buttonDate.setOnClickListener {
@@ -91,31 +103,42 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
     }
 
     override fun observers() {
-        currentTask.observe(this, {
-
-            it?.let {
-                binding.spinnerPriority.setSelection(it.priorityId)
-                binding.task = it
-
-                binding.buttonSave.isEnabled =
-                    (it.description.isNotEmpty() && it.dueDate.isNotEmpty())
-            }
-
-        })
-
         viewModel.apply {
             loading.observe(this@TaskFragment, { show ->
                 if (show) loadingDialog.show() else loadingDialog.dismiss()
             })
 
-            task.observe(this@TaskFragment, {
-                currentTask.postValue(it)
+            createdTask.observe(this@TaskFragment, {
+                val dialog = ComponentUtils().getAlertDialog(requireActivity(), "Task Added", false)
+                dialog.setOnDismissListener {
+                    navController.navigateUp()
+                }
+                dialog.show()
+
+                hideKeyboard(requireContext(), view?.parent as ViewGroup)
+
             })
 
             errorMessage.observe(this@TaskFragment, {
                 loadingDialog.dismiss()
                 ComponentUtils().getAlertDialog(requireActivity(), it, false)
             })
+        }
+    }
+
+    fun hideKeyboard(context: Context, viewGroup: ViewGroup) {
+        try {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(viewGroup.windowToken, 0)
+        } catch (e: Exception) {
+
+        }
+    }
+
+    private fun enableButton() {
+        currentTask.apply {
+            binding.buttonSave.isEnabled =
+                (description.isNotEmpty() && dueDate.isNotEmpty() && priorityId > 0)
         }
     }
 
@@ -134,8 +157,10 @@ class TaskFragment : BaseFragment(), DatePickerDialog.OnDateSetListener {
         val calendar = Calendar.getInstance()
         calendar.set(year, month, dayOfMonth)
 
-        currentTask.value?.let {
-            it.dueDate = dateFormat.format(calendar.time)
+        currentTask.apply {
+            dueDate = dateFormat.format(calendar.time)
+            binding.buttonDate.text = dueDate
         }
+        enableButton()
     }
 }
