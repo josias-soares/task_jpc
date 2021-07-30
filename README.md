@@ -36,7 +36,7 @@ Application using JetPack components
       <tr>
          <td>☑️ <a href="https://developer.android.com/guide/navigation"> Navigation</a></td>
          <td>☑️ <a href="https://developer.android.com/guide/components/fragments"> Fragment</a></td>
-         <td>🔲 <a href="https://developer.android.com/training/testing"> Test</a></td>
+         <td>☑️ <a href="https://developer.android.com/training/testing"> Test</a></td>
          <td>🔲 <a href="https://developer.android.com/guide/topics/ui/notifiers/notifications"> Notifications</a></td>
       </tr>
       <tr>
