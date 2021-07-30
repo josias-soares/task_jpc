@@ -1,7 +1,6 @@
 package com.soares.task.usecases
 
 import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.soares.task.BaseTest
 import com.soares.task.domain.DataState
@@ -15,7 +14,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.lenient
 
 
