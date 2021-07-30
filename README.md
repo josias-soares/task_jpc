@@ -12,10 +12,10 @@ Application using JetPack components
          <td>🎯...................Behavior..................</td>
       </tr>
       <tr>
-         <td>☑️ Data Binding</td>
-         <td>🔳 Animation & Transitions</td>
-         <td>🔲 AppCompat</td>
-         <td>🔲 Download Manager</td>
+         <td>☑️ <a href="https://developer.android.com/topic/libraries/data-binding">Data Binding</a></td>
+         <td>🔳 <a href="https://developer.android.com/guide/navigation/navigation-animate-transitions">Animation & Transitions</a></td>
+         <td>☑️ <a href="https://developer.android.com/jetpack/androidx/releases/appcompat">AppCompat</a></td>
+         <td>🔲 <a href="https://developer.android.com/reference/android/app/DownloadManager">Download Manager</a></td>
       </tr>
       <tr>
          <td>☑️ Lifecycles</td>
