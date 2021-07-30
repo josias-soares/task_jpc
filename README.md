@@ -1,5 +1,5 @@
 # Simple Task app
-Application using JetPack components
+Application using Android JetPack
 
 <table>
    <tbody>
