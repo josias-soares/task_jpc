@@ -71,4 +71,4 @@ Application using JetPack components
   
   
  # To-Do
-🔲 Implement WS
+🔲 Implement WS(The app is just doing repository interactions with local data)
