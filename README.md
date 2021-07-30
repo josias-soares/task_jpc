@@ -11,6 +11,12 @@ Application using JetPack components
          <td>🎯..................Foundation.................</td>
          <td>🎯...................Behavior..................</td>
       </tr>
+      <tr>    
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+      </tr>
       <tr>
          <td>☑️ <a href="https://developer.android.com/topic/libraries/data-binding">Data Binding</a></td>
          <td>🔳 <a href="https://developer.android.com/guide/navigation/navigation-animate-transitions">Animation & Transitions</a></td>
@@ -25,9 +31,9 @@ Application using JetPack components
       </tr>
       <tr>
          <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/livedata"> LiveData</a></td>
-         <td>🔲 <a href="https://developer.android.com/topic/libraries/architecture/livedata"> Emoji</td>
-         <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/livedata"> Multidex</td>
-         <td>🔲 <a href="https://developer.android.com/topic/libraries/architecture/livedata"> Permissions</td>
+         <td>🔲 <a href="https://developer.android.com/guide/topics/ui/look-and-feel/emoji-compat"> Emoji</td>
+         <td>☑️ <a href="https://developer.android.com/jetpack/androidx/releases/multidex"> Multidex</td>
+         <td>🔲 <a href="https://developer.android.com/guide/topics/permissions/overview"> Permissions</td>
       </tr>
       <tr>
          <td>☑️ Navigation</td>
