@@ -1,4 +1,4 @@
-# Task application example
+# Simple Task app
 Application using JetPack components
 
 <table>
