@@ -1,7 +1,7 @@
 # Task application example
 Application using JetPack components
 
-<a href="https://developer.android.com/jetpack"><img src="https://1.bp.blogspot.com/-dwL58chu7wo/WvD1RrHln3I/AAAAAAAAFUg/cRTc0IZga_wMPTWr3CI53IZ5BwtnZMeYACLcBGAs/s1600/Screen%2BShot%2B2018-05-05%2Bat%2B11.49.30%2BAMimage1.png" widht="500px"></a>
+<a href="https://developer.android.com/jetpack"><img src="https://1.bp.blogspot.com/-dwL58chu7wo/WvD1RrHln3I/AAAAAAAAFUg/cRTc0IZga_wMPTWr3CI53IZ5BwtnZMeYACLcBGAs/s1600/Screen%2BShot%2B2018-05-05%2Bat%2B11.49.30%2BAMimage1.png" width="1000"></a>
   
 <table>
    <tbody>
@@ -31,15 +31,15 @@ Application using JetPack components
       </tr>
       <tr>
          <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/livedata"> LiveData</a></td>
-         <td>🔲 <a href="https://developer.android.com/guide/topics/ui/look-and-feel/emoji-compat"> Emoji</td>
-         <td>☑️ <a href="https://developer.android.com/jetpack/androidx/releases/multidex"> Multidex</td>
-         <td>🔲 <a href="https://developer.android.com/guide/topics/permissions/overview"> Permissions</td>
+         <td>🔲 <a href="https://developer.android.com/guide/topics/ui/look-and-feel/emoji-compat"> Emoji</a></td>
+         <td>☑️ <a href="https://developer.android.com/jetpack/androidx/releases/multidex"> Multidex</a></td>
+         <td>🔲 <a href="https://developer.android.com/guide/topics/permissions/overview"> Permissions</a></td>
       </tr>
       <tr>
-         <td>☑️ Navigation</td>
-         <td>☑️ Fragment</td>
-         <td>🔲 Test</td>
-         <td>🔲 Notifications</td>
+         <td>☑️ <a href="https://developer.android.com/guide/navigation"> Navigation</a></td>
+         <td>☑️ <a href="https://developer.android.com/guide/components/fragments"> Fragment</a></td>
+         <td>🔲 <a href="https://developer.android.com/training/testing"> Test</a></td>
+         <td>🔲 <a href="https://developer.android.com/guide/topics/ui/notifiers/notifications"> Notifications</a></td>
       </tr>
       <tr>
          <td>🔲 Paging</td>
@@ -48,13 +48,13 @@ Application using JetPack components
          <td>🔲 Sharing</td>
       </tr>
       <tr>
-         <td>☑️ Room</td>
+         <td>☑️ <a href="https://developer.android.com/training/data-storage/room"> Room</td>
          <td>🔲 Palette</td>
          <td> </td>
          <td>🔲 Slices</td>
       </tr>
       <tr>
-         <td>☑️ ViewModel</td>
+         <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/viewmodel"> ViewModel</td>
          <td> </td>
          <td> </td>
          <td> </td>
