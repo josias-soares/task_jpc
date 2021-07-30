@@ -18,16 +18,16 @@ Application using JetPack components
          <td>🔲 <a href="https://developer.android.com/reference/android/app/DownloadManager">Download Manager</a></td>
       </tr>
       <tr>
-         <td>☑️ Lifecycles</td>
-         <td>🔲 Auto, TV & Wear</td>
-         <td>☑️ Android KTX</td>
-         <td>🔲 Media & Playback</td>
+         <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/lifecycleLifecycles"> Lifecycles</a></td>
+         <td>🔲 <a href="https://developer.android.com/jetpack/androidx/releases/wear"> Auto, TV & Wear</a></td>
+         <td>☑️ <a href="https://developer.android.com/kotlin/ktx"> Android KTX</a></td>
+         <td>🔲 <a href="https://developer.android.com/guide/topics/media-apps/media-apps-overview"> Media & Playback</a></td>
       </tr>
       <tr>
-         <td>☑️ LiveData</td>
-         <td>🔲 Emoji</td>
-         <td>☑️ Multidex</td>
-         <td>🔲 Permissions</td>
+         <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/livedata"> LiveData</a></td>
+         <td>🔲 <a href="https://developer.android.com/topic/libraries/architecture/livedata"> Emoji</td>
+         <td>☑️ <a href="https://developer.android.com/topic/libraries/architecture/livedata"> Multidex</td>
+         <td>🔲 <a href="https://developer.android.com/topic/libraries/architecture/livedata"> Permissions</td>
       </tr>
       <tr>
          <td>☑️ Navigation</td>
