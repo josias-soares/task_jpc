@@ -41,7 +41,7 @@ Application using Android JetPack
       </tr>
       <tr>
          <td>🔲 <a href="https://developer.android.com/topic/libraries/architecture/paging">Paging</td>
-         <td>🔲 <a href="https://developer.android.com/jetpack/compose">Compose</td>
+         <td>🔲 <a href="https://developer.android.com/jetpack/compose/documentation">Compose</td>
          <td></td>
          <td>🔲 Sharing</td>
       </tr>
