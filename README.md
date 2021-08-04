@@ -40,8 +40,8 @@ Application using Android JetPack
          <td>🔲 <a href="https://developer.android.com/guide/topics/ui/notifiers/notifications"> Notifications</a></td>
       </tr>
       <tr>
-         <td>🔲  <a href="https://developer.android.com/topic/libraries/architecture/paging">Paging</td>
-         <td>🔳 Layout</td>
+         <td>🔲 <a href="https://developer.android.com/topic/libraries/architecture/paging">Paging</td>
+         <td>🔲 <a href="https://developer.android.com/jetpack/compose">Compose</td>
          <td></td>
          <td>🔲 Sharing</td>
       </tr>
