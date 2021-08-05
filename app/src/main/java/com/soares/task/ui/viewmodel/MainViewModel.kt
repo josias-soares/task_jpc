@@ -38,6 +38,10 @@ constructor(
     private val _changedTask: MutableLiveData<Boolean> = MutableLiveData()
     val changedTask: LiveData<Boolean> get() = _changedTask
 
+    fun setTasks(tasks: List<Task>) {
+        _tasks.postValue(tasks)
+    }
+
     fun getAll() {
         viewModelScope.launch {
             getAllTasks()

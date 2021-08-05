@@ -36,11 +36,41 @@ constructor(
     private val _createdTask: MutableLiveData<Boolean> = MutableLiveData()
     val createdTask: LiveData<Boolean> get() = _createdTask
 
+    fun changeId(id: Long) = _id.postValue(id)
+    private val _id: MutableLiveData<Long> = MutableLiveData()
+    val id: LiveData<Long> get() = _id
+
+    fun changeDescription(description: String) = _description.postValue(description)
+    private val _description: MutableLiveData<String> = MutableLiveData()
+    val description: LiveData<String> get() = _description
+
+    fun changePriorityId(priorityId: Int) = _priorityId.postValue(priorityId)
+    private val _priorityId: MutableLiveData<Int> = MutableLiveData()
+    val priorityId: LiveData<Int> get() = _priorityId
+
+    fun changeDueDate(dueDate: String) = _dueDate.postValue(dueDate)
+    private val _dueDate: MutableLiveData<String> = MutableLiveData()
+    val dueDate: LiveData<String> get() = _dueDate
+
+    fun changeComplete(complete: Boolean) = _complete.postValue(complete)
+    private val _complete: MutableLiveData<Boolean> = MutableLiveData()
+    val complete: LiveData<Boolean> get() = _complete
+
     fun setTask(t: Task) {
         _task.value = t
     }
 
     fun saveTask() {
+        _task.postValue(
+            Task(
+                id.value ?: -1,
+                description.value ?: "",
+                priorityId.value ?: 0,
+                dueDate.value ?: "",
+                complete.value ?: false,
+            )
+        )
+
         viewModelScope.launch {
             task.value?.let {
                 if (it.id > 0)

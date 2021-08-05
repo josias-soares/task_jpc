@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/taskFragment"
-        android:name="com.soares.task.ui.view.TaskFragment"
+        android:name="com.soares.task.ui.view.task.TaskFragment"
         android:label="TaskFragment">
         <argument
             android:name="task"

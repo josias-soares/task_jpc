@@ -45,6 +45,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+//        freeCompilerArgs += [
+//                "-P",
+//                "plugin:androidx.compose.compiler.plugins.kotlin:suppressKotlinVersionCompatibilityCheck=true"
+//        ]
     }
 
     compileOptions {
@@ -52,8 +56,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        compose true
+        dataBinding true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.0.0-rc02'
     }
 }
 
@@ -75,12 +84,35 @@ dependencies {
     def okhttp3_version = '4.2.1'
     def nav_version = "2.3.5"
     def lifecycle_version = "2.3.1"
+    def compose_version = "1.0.0"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    // Compose
+    implementation "androidx.compose.ui:ui:$compose_version"
+    // Compose => Tooling support (Previews, etc.)
+    implementation "androidx.compose.ui:ui-tooling:$compose_version"
+    // Compose => Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation "androidx.compose.foundation:foundation:$compose_version"
+    // Compose => Material Design
+    implementation "androidx.compose.material:material:$compose_version"
+    // Compose => Material design icons
+    implementation "androidx.compose.material:material-icons-core:$compose_version"
+    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+    // Compose => Integration with activities
+    implementation 'androidx.activity:activity-compose:1.3.0'
+    // Compose => Integration with ViewModels
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
+    // Compose => Integration with observables
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+    implementation "androidx.compose.runtime:runtime-rxjava2:$compose_version"
+    // Compose => Integration with Navigation
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha05"
+
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"

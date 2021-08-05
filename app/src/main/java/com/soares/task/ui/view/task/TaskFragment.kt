@@ -1,4 +1,4 @@
-package com.soares.task.ui.view
+package com.soares.task.ui.view.task
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -17,6 +17,7 @@ import com.soares.task.R
 import com.soares.task.databinding.FragmentTaskBinding
 import com.soares.task.domain.models.Task
 import com.soares.task.shared.ComponentUtils
+import com.soares.task.ui.view.BaseFragment
 import com.soares.task.ui.viewmodel.TaskViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.text.SimpleDateFormat
