@@ -1,7 +1,7 @@
 # Simple Task app
 Application using Android JetPack
  
-Branche [Jetpack_Compose](https://github.com/josias-soares/task_jpc/tree/jetpack_compose) is under development.
+Branche [compose](https://github.com/josias-soares/task_jpc/tree/jetpack_compose) is under development.
 
 <table>
    <tbody>
